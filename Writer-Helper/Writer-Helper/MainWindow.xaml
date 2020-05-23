@@ -8,8 +8,9 @@
         WindowStyle="None"
         AllowsTransparency="True"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="Welcome, fellow writer!" FontFamily="Stiletto" FontSize="40"/>
+        <TextBlock Text="Welcome, fellow writer!"  FontSize="40"/>
+    </StackPanel>
 </Window>
  
