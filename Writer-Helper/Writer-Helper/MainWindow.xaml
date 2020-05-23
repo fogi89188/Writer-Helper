@@ -12,10 +12,67 @@
         Title="Writer Helper" Height="600" Width="980">
 
 
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!-- outer border with drop shadow margin-->
+                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
+                            <!-- main window outline-->
+                            <Grid>
+                                <!-- main window border and dropshadow margin-->
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=6}"
+                                        Background="#1c1c1c">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2" />
+                                    </Border.Effect>
+                                </Border>
+                                <!-- main window content-->
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <!-- title bar-->
+                                        <RowDefinition Height="{Binding TitleHeightGridLength, FallbackValue=30}" />
+                                        <!-- drop shadow-->
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <!-- title bar-->
+                                    <Grid Background="#232323" Grid.Column="0" Panel.ZIndex="1">
+                                        <Grid.ColumnDefinitions>
+                                            <!-- icon-->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!-- Menu Button-->
+                                            <ColumnDefinition Width="0.1*"/>
+                                            <!-- drop shadow-->
+                                            <ColumnDefinition Width="*"/>
+                                            <!-- window content-->
+                                            <ColumnDefinition Width="Auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <!-- icon-->
+                                        <Image Source="/Images/Logo/logo.jpg"/>
+                                        <!-- menu button-->
+                                        <Button Style="{StaticResource Hoverless}" 
+                                                Grid.Column="1" WindowChrome.IsHitTestVisibleInChrome="True" 
+                                                Command="{Binding MenuCommand}" 
+                                                Content="Menu"
+                                                />
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
     <WindowChrome.WindowChrome>
         <WindowChrome 
             ResizeBorderThickness="{Binding ResizeBorderThickness}"
             CaptionHeight="{Binding TitleHeight}"
+            GlassFrameThickness="0"
+            CornerRadius="0"
             />
     </WindowChrome.WindowChrome>
 

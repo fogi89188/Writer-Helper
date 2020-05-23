@@ -3,12 +3,12 @@
                     xmlns:local="clr-namespace:Writer_Helper">
 
     <Color x:Key="Dark">#232323</Color>
-    <SolidColorBrush x:Key="DarkBrush" Color="{StaticResource Dark}" />
+    <SolidColorBrush x:Key="BackgroundDarkBrush" Color="{StaticResource Dark}" />
 
     <Color x:Key="VeryDark">#1c1c1c</Color>
-    <SolidColorBrush x:Key="VeryDarkBrush" Color="{StaticResource VeryDark}" />
+    <SolidColorBrush  x:Key="BackgroundVeryDarkBrush" Color="{StaticResource VeryDark}" />
     
     <Color x:Key="Black">#000000</Color>
-    <SolidColorBrush x:Key="BlackBrush" Color="{StaticResource Black}" />
+    <SolidColorBrush x:Key="BackgroundBlackBrush" Color="{StaticResource Black}" />
 
 </ResourceDictionary>

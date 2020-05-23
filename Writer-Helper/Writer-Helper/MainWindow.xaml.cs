@@ -23,6 +23,8 @@ namespace Writer_Helper
     {
         public MainWindow()
         {
+            InitializeComponent();
+
             this.DataContext = new WindowViewModel(this);
         }
     }

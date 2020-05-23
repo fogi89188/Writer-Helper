@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation.Peers;
+using System.Windows.Controls;
 
 namespace Writer_Helper.ViewModels
 {
@@ -85,6 +86,11 @@ namespace Writer_Helper.ViewModels
         /// The height of the title bar caption of the window
         /// </summary>
         public int TitleHeight { get; set; } = 30;
+
+        /// <summary>
+        /// The height of the title bar caption of the window
+        /// </summary>
+        public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
 
         #endregion
 
