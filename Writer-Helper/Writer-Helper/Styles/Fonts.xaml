@@ -6,4 +6,16 @@
     <FontFamily x:Key="Stiletto">pack://application:,,,/Fonts/#Stiletto</FontFamily>
     <FontFamily x:Key="RobotoMedium">pack://application:,,,/Fonts/#Roboto Medium</FontFamily>
 
+    <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
+        <Setter Property="FontFamily" Value="{StaticResource RobotoMedium}"/>
+    </Style>
+
+    <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
+        <Setter Property="FontFamily" Value="{StaticResource RobotoMedium}" />
+    </Style>
+    
+    <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type Label}" BasedOn="{StaticResource BaseStyle}" />
+    <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource BaseStyle}" />
+
 </ResourceDictionary>
