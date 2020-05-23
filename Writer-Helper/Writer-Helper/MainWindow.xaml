@@ -50,7 +50,9 @@
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
                                         <!-- icon-->
-                                        <Image Source="/Images/Logo/logo.jpg"/>
+                                        <Border Padding="6">
+                                            <Image Source="/Images/Logo/logo.jpg"/>
+                                        </Border>
                                         <!-- menu button-->
                                         <Button Style="{StaticResource Hoverless}" 
                                                 Grid.Column="1" WindowChrome.IsHitTestVisibleInChrome="True" 
