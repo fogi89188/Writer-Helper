@@ -25,7 +25,7 @@ namespace Writer_Helper.ViewModels
         /// </summary>
         public void OnPropertyChanged(string name)
         {
-
+            PropertyChanged(this, new PropertyChangedEventArgs(name));
         }
     }
 }
