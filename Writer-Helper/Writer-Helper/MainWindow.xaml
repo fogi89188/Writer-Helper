@@ -7,10 +7,19 @@
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="True"
-        Title="MainWindow" Height="450" Width="800">
+        x:Name="AppWindow"
+        WindowStartupLocation="CenterScreen"
+        Title="Writer Helper" Height="600" Width="980">
+
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome 
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            />
+    </WindowChrome.WindowChrome>
+
+
     <StackPanel>
-        <TextBlock Text="Welcome, fellow writer!" FontFamily="Stiletto" FontSize="40"/>
-        <TextBlock Text="Welcome, fellow writer!"  FontSize="40"/>
     </StackPanel>
 </Window>
- 

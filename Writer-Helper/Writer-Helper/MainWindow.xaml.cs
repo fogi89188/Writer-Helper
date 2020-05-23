@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Writer_Helper.ViewModels;
 
 namespace Writer_Helper
 {
@@ -22,12 +23,7 @@ namespace Writer_Helper
     {
         public MainWindow()
         {
-            InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
+            this.DataContext = new WindowViewModel(this);
         }
     }
 }
