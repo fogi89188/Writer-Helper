@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation.Peers;
 using System.Windows.Controls;
+using System.Windows.Input;
+using System.Windows.Media.Effects;
+using Writer_Helper.ViewModels.Base;
 
 namespace Writer_Helper.ViewModels
 {
@@ -94,6 +97,29 @@ namespace Writer_Helper.ViewModels
 
         #endregion
 
+        #region Commands
+
+        /// <summary>
+        /// the command for minizing the window
+        /// </summary>
+        public ICommand MinimizeCommand { get; set; }
+        /// <summary>
+        /// the command for maximizing the window
+        /// </summary>
+        public ICommand MaximizeCommand { get; set; }
+
+        /// <summary>
+        /// the command to close the window
+        /// </summary>
+        public ICommand CloseCommand { get; set; }
+
+        /// <summary>
+        /// the command to show the system menu of the window
+        /// </summary>
+        public ICommand MenuCommand { get; set; }
+
+        #endregion
+
         #region Constructor
         /// <summary>
         /// default constructor
@@ -112,7 +138,38 @@ namespace Writer_Helper.ViewModels
                 OnPropertyChanged(nameof(WindowRadius));
                 OnPropertyChanged(nameof(WindowCornerRadius));
             };
+
+            // create commands
+            MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
+            // ^= is an XOR; Normal = 0; Minimized = 1; Maximized = 2; When applying an XOR we can jump from 0 to 2, from 2 to 0, essentially switching between normal state and maximized state
+            MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Minimized);
+            CloseCommand = new RelayCommand(() => mWindow.Close());
+            MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetCursorPosition()));
         }
+        #endregion
+
+        #region Private Helpers
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool GetCursorPos(ref Win32Point pt);
+
+        internal struct Win32Point
+        {
+            public Int32 X;
+            public Int32 Y;
+        };
+
+        /// <summary>
+        /// gets the current position on the screen, WPF doesnt have a way to get the mouse position
+        /// </summary>
+        /// <returns></returns>
+        public static Point GetCursorPosition()
+        {
+            Win32Point w32mouse = new Win32Point();
+            GetCursorPos(ref w32mouse);
+            return new Point(w32mouse.X, w32mouse.Y);
+        }
+
         #endregion
     }
 }

@@ -54,11 +54,37 @@
                                             <Image Source="/Images/Logo/logo.jpg"/>
                                         </Border>
                                         <!-- menu button-->
-                                        <Button Style="{StaticResource Hoverless}" 
-                                                Grid.Column="1" WindowChrome.IsHitTestVisibleInChrome="True" 
+                                        <Button Style="{StaticResource Header}" 
+                                                Grid.Column="1" 
                                                 Command="{Binding MenuCommand}" 
                                                 Content="Menu"
                                                 />
+                                        <!-- system buttons -->
+                                        <Grid Grid.Column="3" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="0.333*" />
+                                                <ColumnDefinition Width="0.333*" />
+                                                <ColumnDefinition Width="0.333*" />
+                                            </Grid.ColumnDefinitions>
+                                            <Button Padding="10" Style="{StaticResource System}" 
+                                                Command="{Binding MinimizeCommand}" 
+                                                Grid.Column="0"
+                                                >
+                                                <Image Source="/Images/System/minimize.jpg" />
+                                            </Button>
+                                            <Button Padding="10" Style="{StaticResource System}" 
+                                                Command="{Binding MaximizeCommand}" 
+                                                Grid.Column="1"
+                                                >
+                                                <Image Source="/Images/System/maximize.jpg" />
+                                            </Button>
+                                            <Button Padding="10" Style="{StaticResource System}" 
+                                                Command="{Binding CloseCommand}" 
+                                                Grid.Column="2"
+                                                >
+                                                <Image Source="/Images/System/close.png" />
+                                            </Button>
+                                        </Grid>
                                     </Grid>
                                 </Grid>
                             </Grid>

@@ -5,13 +5,14 @@
     <!-- gets the package of the application and starts looking at hte root folder for them-->
     <FontFamily x:Key="Stiletto">pack://application:,,,/Fonts/#Stiletto</FontFamily>
     <FontFamily x:Key="RobotoMedium">pack://application:,,,/Fonts/#Roboto Medium</FontFamily>
+    <FontFamily x:Key="RobotoLight">pack://application:,,,/Fonts/#Roboto Light</FontFamily>
 
     <Style TargetType="{x:Type Control}" x:Key="BaseStyle">
-        <Setter Property="FontFamily" Value="{StaticResource RobotoMedium}"/>
+        <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
     </Style>
 
     <Style TargetType="{x:Type TextBlock}" x:Key="BaseTextBlockStyle">
-        <Setter Property="FontFamily" Value="{StaticResource RobotoMedium}" />
+        <Setter Property="FontFamily" Value="{StaticResource RobotoLight}" />
     </Style>
     
     <Style TargetType="{x:Type Button}" BasedOn="{StaticResource BaseStyle}" />
