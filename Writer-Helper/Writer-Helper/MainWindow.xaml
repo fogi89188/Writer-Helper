@@ -88,8 +88,9 @@
                                         </Grid>
                                     </Grid>
                                     <!-- page content -->
-                                    <Border Grid.Row="2" Padding="{Binding InnerContentPadding}">
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
                                         <!-- content -->
+                                        <Frame x:Name="MainFrame" Content="{Binding CurrentPage}" />
                                     </Border>
                                 </Grid>
                             </Grid>
@@ -108,8 +109,5 @@
             CornerRadius="0"
             />
     </WindowChrome.WindowChrome>
-
-
-    <StackPanel>
-    </StackPanel>
+    
 </Window>

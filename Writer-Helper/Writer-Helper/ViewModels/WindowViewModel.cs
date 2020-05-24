@@ -9,6 +9,7 @@ using System.Windows.Automation.Peers;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Effects;
+using Writer_Helper.Models;
 using Writer_Helper.ViewModels.Base;
 
 namespace Writer_Helper.ViewModels
@@ -46,7 +47,7 @@ namespace Writer_Helper.ViewModels
         /// </summary>
         public double windowMinimumHeight { get; set; } = 600;
 
-        public int InnerContentPadding { get; set; } = 6;
+        public int InnerContentPadding { get; set; } = 15;
 
         /// <summary>
         /// the size of the resize boreder around the window
@@ -107,6 +108,11 @@ namespace Writer_Helper.ViewModels
         /// The height of the title bar caption of the window
         /// </summary>
         public GridLength TitleHeightGridLength { get { return new GridLength(TitleHeight + ResizeBorder); } }
+
+        /// <summary>
+        /// the current page of application
+        /// </summary>
+        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
 
         #endregion
 
