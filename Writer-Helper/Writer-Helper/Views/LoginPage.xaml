@@ -36,41 +36,30 @@
                                 FontFamily="{StaticResource RobotoLight}"/>
 
                             <!-- email -->
-                            <TextBlock Text="Enter valid Email..." 
+                            <TextBlock Text="Enter email:" 
                                        HorizontalAlignment="Left"
                                        FontSize="15"
                                        Foreground="LightGray"
-                                       Margin=" 10 10 0 0"/>
+                                       Margin="0 20 0 0"/>
                             <TextBox 
-                                Margin="10 0 10 10"
-                                Padding="4">
-                                <TextBox.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="2"/>
-                                    </Style>
-                                </TextBox.Resources>
+                                Style="{StaticResource Credentials}"
+                                Margin="0 0 0 15">
                             </TextBox>
                             
                             <!-- password -->
-                            <TextBlock Text="Enter valid Password..." 
+                            <TextBlock Text="Enter password:" 
                                        HorizontalAlignment="Left"
                                        FontSize="15"
-                                       Foreground="LightGray"
-                                       Margin=" 10 0 0 0"/>
-                            <TextBox 
-                                Margin="10 0 10 10"
-                                Padding="4">
-                                <TextBox.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="CornerRadius" Value="2"/>
-                                    </Style>
-                                </TextBox.Resources>
-                            </TextBox>
+                                       Foreground="LightGray"/>
+                            <PasswordBox 
+                                Style="{StaticResource Password}"
+                                Margin="0 0 0 20">
+                            </PasswordBox>
 
                             <!-- next button -->
                             <Button Content="Next"
                                     HorizontalAlignment="Center"
-                                    Padding="10"
+                                    Padding="20 10 20 10"
                                     Margin="10"
                                     FontFamily="{StaticResource RobotoMedium}"
                                     FontSize="30"
@@ -98,7 +87,6 @@
                                     Padding="10"
                                     Style="{StaticResource Hoverless}">
                     </Button>
-                    
                 </StackPanel>
             </ScrollViewer>
         </Grid>
