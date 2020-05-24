@@ -37,9 +37,22 @@ namespace Writer_Helper.ViewModels
         #region Public Properties
 
         /// <summary>
+        /// minimum window width
+        /// </summary>
+        public double windowMinimumWidth { get; set; } = 980;
+
+        /// <summary>
+        /// minimum window height
+        /// </summary>
+        public double windowMinimumHeight { get; set; } = 600;
+
+        public int InnerContentPadding { get; set; } = 6;
+
+        /// <summary>
         /// the size of the resize boreder around the window
         /// </summary>
         public int ResizeBorder { get; set; } = 6;
+
         /// <summary>
         /// the size of the resize border around the window
         /// </summary>
@@ -142,7 +155,7 @@ namespace Writer_Helper.ViewModels
             // create commands
             MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
             // ^= is an XOR; Normal = 0; Minimized = 1; Maximized = 2; When applying an XOR we can jump from 0 to 2, from 2 to 0, essentially switching between normal state and maximized state
-            MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Minimized);
+            MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
             CloseCommand = new RelayCommand(() => mWindow.Close());
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetCursorPosition()));
         }
