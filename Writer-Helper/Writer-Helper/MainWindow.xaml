@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Writer_Helper"
+        xmlns:local="clr-namespace:Writer_Helper" xmlns:local1="clr-namespace:Writer_Helper.ValueConverters"
         mc:Ignorable="d"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -43,19 +43,22 @@
                                         <Grid.ColumnDefinitions>
                                             <!-- icon-->
                                             <ColumnDefinition Width="Auto"/>
-                                            <!-- Menu Button-->
-                                            <ColumnDefinition Width="0.1*"/>
-                                            <!-- drop shadow-->
+                                            <!-- main text-->
                                             <ColumnDefinition Width="*"/>
                                             <!-- window content-->
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <!-- menu button-->
-                                        <Button Style="{StaticResource Header}" 
-                                                Grid.Column="1" 
-                                                Command="{Binding MenuCommand}" 
-                                                Content="Menu"
-                                                />
+                                        <!-- Writer helper text-->
+                                        <TextBlock Text="Writer Helper"
+                                                   Grid.Column="0"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center"
+                                                   FontSize="20"
+                                                   FontFamily="{StaticResource RobotoMedium}"
+                                                   Foreground="Aquamarine"
+                                                   Padding="10">
+                                            
+                                        </TextBlock>
                                         <!-- system buttons -->
                                         <Grid Grid.Column="3" >
                                             <Grid.ColumnDefinitions>
@@ -86,7 +89,7 @@
                                     <!-- page content -->
                                     <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
                                         <!-- content -->
-                                        <Frame x:Name="MainFrame" Content="{Binding CurrentPage}" />
+                                        <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local1:ApplicationPageValueConverter}}" />
                                     </Border>
                                 </Grid>
                             </Grid>

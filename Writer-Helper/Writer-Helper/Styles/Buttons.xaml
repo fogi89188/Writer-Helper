@@ -12,7 +12,7 @@
         <Style TargetType="{x:Type Button}" x:Key="Hoverless">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="Aquamarine"/>
             <Setter Property="FontSize" Value="20"/>
 
             <Setter Property="Template">

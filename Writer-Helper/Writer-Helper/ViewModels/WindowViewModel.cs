@@ -40,12 +40,12 @@ namespace Writer_Helper.ViewModels
         /// <summary>
         /// minimum window width
         /// </summary>
-        public double windowMinimumWidth { get; set; } = 980;
+        public double windowMinimumWidth { get; set; } = 1120;
 
         /// <summary>
         /// minimum window height
         /// </summary>
-        public double windowMinimumHeight { get; set; } = 600;
+        public double windowMinimumHeight { get; set; } = 630;
 
         public int InnerContentPadding { get; set; } = 15;
 
