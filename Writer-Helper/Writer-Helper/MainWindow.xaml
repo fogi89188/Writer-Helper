@@ -50,10 +50,6 @@
                                             <!-- window content-->
                                             <ColumnDefinition Width="Auto"/>
                                         </Grid.ColumnDefinitions>
-                                        <!-- icon-->
-                                        <Border Padding="6">
-                                            <Image Source="/Images/Logo/logo.jpg"/>
-                                        </Border>
                                         <!-- menu button-->
                                         <Button Style="{StaticResource Header}" 
                                                 Grid.Column="1" 
