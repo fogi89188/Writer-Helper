@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Writer_Helper.Models;
+using Writer_Helper.Views;
 
 namespace Writer_Helper.ValueConverters
 {
@@ -21,6 +22,9 @@ namespace Writer_Helper.ValueConverters
             {
                 case ApplicationPage.Login:
                     return new LoginPage();
+
+                case ApplicationPage.Registration:
+                    return new RegisterView();
 
                 default:
                     Debugger.Break();

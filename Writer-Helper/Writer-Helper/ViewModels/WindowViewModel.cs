@@ -165,6 +165,10 @@ namespace Writer_Helper.ViewModels
             CloseCommand = new RelayCommand(() => mWindow.Close());
             MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetCursorPosition()));
         }
+
+        public WindowViewModel()
+        {
+        }
         #endregion
 
         #region Private Helpers

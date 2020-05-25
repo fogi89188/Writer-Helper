@@ -12,23 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Writer_Helper.Models;
-using Writer_Helper.ViewModels;
 
-namespace Writer_Helper
+namespace Writer_Helper.Views
 {
     /// <summary>
-    /// Interaction logic for LoginPage.xaml
+    /// Interaction logic for RegisterView.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class RegisterView : Page
     {
-        public LoginPage()
+        public RegisterView()
         {
             InitializeComponent();
-        }
-        private void MainWriterHelperWindow(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Views/RegisterView.xaml", UriKind.Relative));
         }
     }
 }

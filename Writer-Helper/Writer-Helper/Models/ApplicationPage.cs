@@ -15,5 +15,9 @@ namespace Writer_Helper.Models
         /// the initial login page
         /// </summary>
         Login = 0,
+        /// <summary>
+        /// the registration page
+        /// </summary>
+        Registration = 1,
     }
 }
