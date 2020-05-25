@@ -80,8 +80,7 @@
                                             </Button>
                                             <Button Padding="10" Style="{StaticResource System}" 
                                                 Command="{Binding CloseCommand}" 
-                                                Grid.Column="2"
-                                                >
+                                                Grid.Column="2">
                                                 <Image Source="/Images/System/close.png" />
                                             </Button>
                                         </Grid>

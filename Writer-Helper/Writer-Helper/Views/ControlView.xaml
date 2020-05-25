@@ -9,6 +9,39 @@
       Title="ControlPage">
 
     <Grid Background="#1c1c1c">
+
+        <!-- content -->
+        <StackPanel>
+
+            <!-- header -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" 
+                    Content="Name Generation" 
+                    Style="{StaticResource System}"/>
+                <Button Grid.Column="1" 
+                    Content="Favourites" 
+                    Style="{StaticResource System}"/>
+                <Button Grid.Column="2" 
+                    Content="Log Out" 
+                    Style="{StaticResource System}"/>
+                
+            </Grid>
+
+            <TextBlock Style="{StaticResource Main1}" 
+                       HorizontalAlignment="Center" 
+                       Text="Writer Helper"/>
+            <TextBlock Style="{StaticResource Main2}" 
+                       HorizontalAlignment="Center" 
+                       Text="How may I be of service?"/>
+        </StackPanel>
         
     </Grid>
 </Page>
