@@ -20,15 +20,19 @@ namespace Writer_Helper
     /// <summary>
     /// Interaction logic for LoginPage.xaml
     /// </summary>
-    public partial class LoginPage : Page
+    public partial class LoginView : Page
     {
-        public LoginPage()
+        public LoginView()
         {
             InitializeComponent();
         }
-        private void MainWriterHelperWindow(object sender, RoutedEventArgs e)
+        private void GoToRegistration(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Views/RegisterView.xaml", UriKind.Relative));
+        }
+        private void GoToControlView(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
         }
     }
 }

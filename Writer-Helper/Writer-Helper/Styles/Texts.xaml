@@ -24,4 +24,22 @@
         <Setter Property="Padding" Value="5"/>
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="Main1">
+        <Setter Property="FontSize" Value="40"/>
+        <Setter Property="Foreground" Value="Aquamarine"/>
+        <Setter Property="FontFamily" Value="{StaticResource RobotoMedium}"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="Main2">
+        <Setter Property="FontSize" Value="30"/>
+        <Setter Property="Foreground" Value="MediumAquamarine"/>
+        <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
+    </Style>
+    
+    <Style TargetType="TextBlock" x:Key="Main3">
+        <Setter Property="FontSize" Value="17"/>
+        <Setter Property="Foreground" Value="LightGray"/>
+        <Setter Property="FontFamily" Value="{StaticResource RobotoLight}"/>
+    </Style>
+
 </ResourceDictionary>

@@ -21,7 +21,7 @@ namespace Writer_Helper.ValueConverters
             switch ((ApplicationPage)value)
             {
                 case ApplicationPage.Login:
-                    return new LoginPage();
+                    return new LoginView();
 
                 case ApplicationPage.Registration:
                     return new RegisterView();

@@ -16,21 +16,13 @@ using System.Windows.Shapes;
 namespace Writer_Helper.Views
 {
     /// <summary>
-    /// Interaction logic for RegisterView.xaml
+    /// Interaction logic for ControlPage.xaml
     /// </summary>
-    public partial class RegisterView : Page
+    public partial class ControlPage : Page
     {
-        public RegisterView()
+        public ControlPage()
         {
             InitializeComponent();
-        }
-        private void GoToLogin(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
-        }
-        private void GoToControlView(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
         }
     }
 }

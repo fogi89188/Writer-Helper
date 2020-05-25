@@ -1,4 +1,4 @@
-﻿<Page x:Class="Writer_Helper.LoginPage"
+﻿<Page x:Class="Writer_Helper.LoginView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -26,14 +26,10 @@
 
                             <!-- sign up header-->
                             <TextBlock 
-                                Text="Sign In" FontSize="40" 
-                                Foreground="Aquamarine" 
-                                FontFamily="{StaticResource RobotoMedium}"/>
+                                Text="Sign In" Style="{StaticResource Main1}"/>
                             <!-- sign up sub-text-->
-                            <TextBlock Text="Almost there" 
-                                FontSize="17" 
-                                Foreground="LightGray"
-                                FontFamily="{StaticResource RobotoLight}"/>
+                            <TextBlock Text="Almost there"
+                                       Style="{StaticResource Main3}"/>
 
                             <!-- email -->
                             <TextBlock Text="Enter email:" 
@@ -66,7 +62,8 @@
                                     VerticalAlignment="Center"
                                     Foreground="#1c1c1c"
                                     Background="Aquamarine"
-                                    BorderThickness="0">
+                                    BorderThickness="0"
+                                    Click="GoToControlView">
                                 <Button.Resources>
                                     <Style TargetType="Border">
                                         <Setter Property="CornerRadius" Value="5"/>
@@ -86,7 +83,7 @@
                                     BorderThickness="0"
                                     Padding="10"
                                     Style="{StaticResource Hoverless}"
-                                    Click="MainWriterHelperWindow">
+                                    Click="GoToRegistration">
                     </Button>
                 </StackPanel>
             </ScrollViewer>
