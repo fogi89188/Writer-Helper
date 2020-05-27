@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Writer_Helper.Models;
 
 namespace Writer_Helper.Views
 {
@@ -28,8 +29,13 @@ namespace Writer_Helper.Views
         {
             this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
         }
-        private void GoToControlView(object sender, RoutedEventArgs e)
+        private void CreateUser(object sender, RoutedEventArgs e)
         {
+            string email = $"{EmailTextBox.Text}";
+            string password = $"{PasswordTextBox.Password}";
+
+            DatabaseModel database = DatabaseModel.Instance;
+            database.AddUser(email, password);
             this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
         }
     }

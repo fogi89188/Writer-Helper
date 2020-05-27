@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace Writer_Helper.ViewModels.Base
 {
-    class RelayCommand : ICommand
+    class RelayCommandViewModel : ICommand
     {
         #region Private Members
 
@@ -32,7 +32,7 @@ namespace Writer_Helper.ViewModels.Base
         /// <summary>
         /// Default constructor
         /// </summary>
-        public RelayCommand(Action action)
+        public RelayCommandViewModel(Action action)
         {
             mAction = action;
         }

@@ -30,9 +30,18 @@ namespace Writer_Helper
         {
             this.NavigationService.Navigate(new Uri("Views/RegisterView.xaml", UriKind.Relative));
         }
-        private void GoToControlView(object sender, RoutedEventArgs e)
+        private void Login(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
+            string email = $"{EmailTextBox.Text}";
+            string password = $"{PasswordTextBox.Password}";
+            if (DatabaseModel.Instance.Login(email, password) == true)
+            {
+                this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
+            }
+            else
+            {
+                WrongPasswordTextBlock.Text = "Invalid email or password.";
+            }
         }
     }
 }

@@ -24,5 +24,9 @@ namespace Writer_Helper.Views
         {
             InitializeComponent();
         }
+        private void GoToLogin(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
+        }
     }
 }

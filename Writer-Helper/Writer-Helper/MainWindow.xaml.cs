@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Writer_Helper.Models;
 using Writer_Helper.ViewModels;
 
 namespace Writer_Helper
@@ -26,6 +27,7 @@ namespace Writer_Helper
             InitializeComponent();
 
             this.DataContext = new WindowViewModel(this);
+            DatabaseModel.Initialize();
         }
     }
 }

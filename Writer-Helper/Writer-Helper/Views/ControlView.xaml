@@ -31,7 +31,8 @@
                     Style="{StaticResource System}"/>
                 <Button Grid.Column="2" 
                     Content="Log Out" 
-                    Style="{StaticResource System}"/>
+                    Style="{StaticResource System}"
+                        Click="GoToLogin"/>
                 
             </Grid>
 
@@ -59,7 +60,6 @@
                 <!-- choose a race-->
                 <ComboBox Grid.Column="2"
                           Background="Transparent">
-                    
                 </ComboBox>
 
             </Grid>

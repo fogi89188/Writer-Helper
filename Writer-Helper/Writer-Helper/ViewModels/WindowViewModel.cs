@@ -112,7 +112,7 @@ namespace Writer_Helper.ViewModels
         /// <summary>
         /// the current page of application
         /// </summary>
-        public ApplicationPage CurrentPage { get; set; } = ApplicationPage.Login;
+        public ApplicationPageModel CurrentPage { get; set; } = ApplicationPageModel.Login;
 
         #endregion
 
@@ -137,6 +137,13 @@ namespace Writer_Helper.ViewModels
         /// </summary>
         public ICommand MenuCommand { get; set; }
 
+        private void FullCloseCommand()
+        {
+            DatabaseModel database = DatabaseModel.Instance;
+            DatabaseModel.connection.Close();
+            mWindow.Close();
+        }
+
         #endregion
 
         #region Constructor
@@ -159,11 +166,11 @@ namespace Writer_Helper.ViewModels
             };
 
             // create commands
-            MinimizeCommand = new RelayCommand(() => mWindow.WindowState = WindowState.Minimized);
+            MinimizeCommand = new RelayCommandViewModel(() => mWindow.WindowState = WindowState.Minimized);
             // ^= is an XOR; Normal = 0; Minimized = 1; Maximized = 2; When applying an XOR we can jump from 0 to 2, from 2 to 0, essentially switching between normal state and maximized state
-            MaximizeCommand = new RelayCommand(() => mWindow.WindowState ^= WindowState.Maximized);
-            CloseCommand = new RelayCommand(() => mWindow.Close());
-            MenuCommand = new RelayCommand(() => SystemCommands.ShowSystemMenu(mWindow, GetCursorPosition()));
+            MaximizeCommand = new RelayCommandViewModel(() => mWindow.WindowState ^= WindowState.Maximized);
+            CloseCommand = new RelayCommandViewModel(() =>  FullCloseCommand());
+            MenuCommand = new RelayCommandViewModel(() => SystemCommands.ShowSystemMenu(mWindow, GetCursorPosition()));
         }
 
         public WindowViewModel()

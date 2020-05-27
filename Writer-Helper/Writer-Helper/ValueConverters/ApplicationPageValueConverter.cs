@@ -18,12 +18,12 @@ namespace Writer_Helper.ValueConverters
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             //Find the appropriate page
-            switch ((ApplicationPage)value)
+            switch ((ApplicationPageModel)value)
             {
-                case ApplicationPage.Login:
+                case ApplicationPageModel.Login:
                     return new LoginView();
 
-                case ApplicationPage.Registration:
+                case ApplicationPageModel.Registration:
                     return new RegisterView();
 
                 default:

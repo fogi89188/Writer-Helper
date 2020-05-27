@@ -9,7 +9,7 @@ namespace Writer_Helper.Models
     /// <summary>
     /// a page of the application
     /// </summary>
-    public enum ApplicationPage
+    public enum ApplicationPageModel
     {
         /// <summary>
         /// the initial login page
