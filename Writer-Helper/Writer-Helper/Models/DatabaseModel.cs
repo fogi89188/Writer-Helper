@@ -29,9 +29,43 @@ namespace Writer_Helper.Models
 
         public static MySqlConnection connection = new MySqlConnection(connectionString);
 
+        public static string currentEmail = "";
+
+        public static bool isAdmin = false;
+
         #endregion
 
         #region Commands
+
+        /// <summary>
+        /// getter setter for currentEmail
+        /// </summary>
+        public static string CurrentEmail
+        {
+            get
+            {
+                return currentEmail;
+            }
+            set
+            {
+                currentEmail = value;
+            }
+        }
+
+        /// <summary>
+        /// getter setter for isAdmin
+        /// </summary>
+        public static bool IsAdmin
+        {
+            get
+            {
+                return isAdmin;
+            }
+            set
+            {
+                isAdmin = value;
+            }
+        }
 
         public static void Initialize()
         {
@@ -46,6 +80,12 @@ namespace Writer_Helper.Models
             }
         }
 
+        /// <summary>
+        /// checks if the login information is correct and if so, logs in the user
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         public bool Login(string email, string password)
         {
             if (email == null || password == null)
@@ -53,7 +93,7 @@ namespace Writer_Helper.Models
                 return false;
             }
             //create new command with statement mysqlStatement
-            string mysqlStatement = $"SELECT password FROM Users WHERE email = \"{email}\"; ";
+            string mysqlStatement = $"SELECT password, isAdmin FROM Users WHERE email = \"{email}\"; ";
             MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
             //creare a reader to comapre data from the database
             MySqlDataReader reader = command.ExecuteReader();
@@ -62,12 +102,24 @@ namespace Writer_Helper.Models
             {
                 //checks if the password is correct
                 bool passwordCheck = reader.GetString("password").Equals(password);
+                if(passwordCheck == true)
+                {
+                    CurrentEmail = email;
+                    IsAdmin = reader.GetBoolean("isAdmin");
+                }
                 reader.Close();
                 return passwordCheck;
             }
             reader.Close();
             return false;
         }
+
+        public void Logout()
+        {
+            CurrentEmail = null;
+            IsAdmin = false;
+        }
+
         /// <summary>
         /// creates a user
         /// </summary>

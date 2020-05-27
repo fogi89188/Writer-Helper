@@ -9,6 +9,58 @@
       Title="ChangeEmail">
 
     <Grid>
-        
+        <StackPanel>
+            <TextBlock Text="Enter new email:" 
+                       Style="{StaticResource Main1}" 
+                       HorizontalAlignment="Center"
+                       Margin="0 100 0 0"/>
+            <TextBox Style="{StaticResource Credentials}"
+                 Margin="60"
+                 Padding="10"
+                 x:Name="NewEmail"
+                TextAlignment="Center"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/> 
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <Button Grid.Column="1"
+                        Style="{StaticResource System}"
+                        Background="MediumAquamarine"
+                        Padding="15"
+                        Content="Confirm"
+                        FontFamily="{StaticResource RobotoMedium}"
+                        Foreground="Black"
+                        Margin="0 0 0 20">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                
+                <Button Grid.Column="3"
+                        Style="{StaticResource System}"
+                        Background="MediumAquamarine"
+                        Padding="15"
+                        Content="Cancel"
+                        FontFamily="{StaticResource RobotoMedium}"
+                        Foreground="Black"
+                        Margin="0 0 0 20"
+                        Click="Cancel">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </StackPanel>
     </Grid>
 </Page>

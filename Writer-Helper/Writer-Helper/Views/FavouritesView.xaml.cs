@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Writer_Helper.Models;
 
 namespace Writer_Helper.Views
 {
@@ -32,6 +33,7 @@ namespace Writer_Helper.Views
         /// <param name="e"></param>
         private void GoToLogin(object sender, RoutedEventArgs e)
         {
+            DatabaseModel.Instance.Logout();
             this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
         }
         /// <summary>

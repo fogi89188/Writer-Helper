@@ -24,5 +24,15 @@ namespace Writer_Helper.Views
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// return to account page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+        }
     }
 }
