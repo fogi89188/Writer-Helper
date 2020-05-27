@@ -17,14 +17,15 @@ using Writer_Helper.Models;
 namespace Writer_Helper.Views
 {
     /// <summary>
-    /// Interaction logic for ChangeEmail.xaml
+    /// Interaction logic for ChangePassworm.xaml
     /// </summary>
-    public partial class ChangeEmail : Page
+    public partial class ChangePasswordView : Page
     {
-        public ChangeEmail()
+        public ChangePasswordView()
         {
             InitializeComponent();
         }
+
 
         /// <summary>
         /// return to account page
@@ -36,17 +37,13 @@ namespace Writer_Helper.Views
             this.NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void Confirm(object sender, RoutedEventArgs e)
         {
-            string newEmail = NewEmail.Text;
+            string newEmail = NewPassword.Text;
             if (newEmail.Length > 0)
             {
-                DatabaseModel.Instance.ChangeEmail(newEmail);
+                DatabaseModel.Instance.ChangePassword(newEmail);
                 this.NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
             }
             else

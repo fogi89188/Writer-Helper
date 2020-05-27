@@ -1,4 +1,4 @@
-﻿<Page x:Class="Writer_Helper.Views.ChangeEmail"
+﻿<Page x:Class="Writer_Helper.Views.DeleteAccount"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,32 +6,29 @@
       xmlns:local="clr-namespace:Writer_Helper.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="ChangeEmail">
+      Title="DeleteAccount">
 
     <Grid>
+
         <StackPanel>
-            <TextBlock Text="Enter new email:" 
+            <TextBlock Text="Are you sure you want to delete your account?" 
                        Style="{StaticResource Main1}" 
                        HorizontalAlignment="Center"
-                       Margin="0 100 0 0"
-                       x:Name="MainText"/>
-            <TextBox Style="{StaticResource Credentials}"
-                 Margin="60"
-                 Padding="10"
-                 x:Name="NewEmail"
-                TextAlignment="Center"/>
+                       Margin="0 100 0 150"
+                       x:Name="MainText"
+                       FontSize="30"/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2*"/> 
+                    <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="2*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                
+
                 <Button Grid.Column="1"
                         Style="{StaticResource System}"
-                        Background="MediumAquamarine"
+                        Background="red"
                         Padding="15"
                         Content="Confirm"
                         FontFamily="{StaticResource RobotoMedium}"
@@ -45,7 +42,7 @@
                         </Style>
                     </Button.Resources>
                 </Button>
-                
+
                 <Button Grid.Column="3"
                         Style="{StaticResource System}"
                         Background="MediumAquamarine"

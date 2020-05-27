@@ -78,14 +78,14 @@
     <Compile Include="Views\ChangeEmailView.xaml.cs">
       <DependentUpon>ChangeEmailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ChangePassworm.xaml.cs">
-      <DependentUpon>ChangePassworm.xaml</DependentUpon>
+    <Compile Include="Views\ChangePasswordView.xaml.cs">
+      <DependentUpon>ChangePasswordView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ControlView.xaml.cs">
       <DependentUpon>ControlView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DeleteAccount.xaml.cs">
-      <DependentUpon>DeleteAccount.xaml</DependentUpon>
+    <Compile Include="Views\DeleteAccountView.xaml.cs">
+      <DependentUpon>DeleteAccountView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\FavouritesView.xaml.cs">
       <DependentUpon>FavouritesView.xaml</DependentUpon>
@@ -110,7 +110,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ChangePassworm.xaml">
+    <Page Include="Views\ChangePasswordView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,7 +118,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DeleteAccount.xaml">
+    <Page Include="Views\DeleteAccountView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

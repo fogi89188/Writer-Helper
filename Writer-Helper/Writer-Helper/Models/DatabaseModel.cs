@@ -31,6 +31,8 @@ namespace Writer_Helper.Models
 
         public static string currentEmail = "";
 
+        public static int currentId = 0;
+
         public static bool isAdmin = false;
 
         #endregion
@@ -49,6 +51,21 @@ namespace Writer_Helper.Models
             set
             {
                 currentEmail = value;
+            }
+        }
+
+        /// <summary>
+        /// getter setter for currentEmail
+        /// </summary>
+        public static int CurrentId
+        {
+            get
+            {
+                return currentId;
+            }
+            set
+            {
+                currentId = value;
             }
         }
 
@@ -93,7 +110,7 @@ namespace Writer_Helper.Models
                 return false;
             }
             //create new command with statement mysqlStatement
-            string mysqlStatement = $"SELECT password, isAdmin FROM Users WHERE email = \"{email}\"; ";
+            string mysqlStatement = $"SELECT password, isAdmin, id FROM Users WHERE email = \"{email}\"; ";
             MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
             //creare a reader to comapre data from the database
             MySqlDataReader reader = command.ExecuteReader();
@@ -105,6 +122,7 @@ namespace Writer_Helper.Models
                 if(passwordCheck == true)
                 {
                     CurrentEmail = email;
+                    CurrentId = reader.GetInt16("id");
                     IsAdmin = reader.GetBoolean("isAdmin");
                 }
                 reader.Close();
@@ -118,6 +136,31 @@ namespace Writer_Helper.Models
         {
             CurrentEmail = null;
             IsAdmin = false;
+            CurrentId = 0;
+        }
+
+        public void ChangeEmail(string newEmail)
+        {
+            //create new command with statement mysqlStatement
+            string mysqlStatement = $"UPDATE Users SET email = \'{newEmail}\' WHERE id = {CurrentId};";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
+        }
+        public void ChangePassword(string newPassword)
+        {
+            //create new command with statement mysqlStatement
+            string mysqlStatement = $"UPDATE Users SET password = \'{newPassword}\' WHERE id = {CurrentId};";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
+        }
+
+        public void DeleteAccount()
+        {
+            //create new command with statement mysqlStatement
+            string mysqlStatement = $"DELETE FROM Users WHERE id = {CurrentId};";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
+            Logout();
         }
 
         /// <summary>
@@ -130,6 +173,7 @@ namespace Writer_Helper.Models
             string mysqlStatement = $"INSERT INTO Users (email, password, isAdmin) VALUES(\"{email}\", \"{password}\", false);";
             MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
             command.ExecuteNonQuery();
+            Login(email, password);
         }
 
         #endregion

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Writer_Helper.Models;
 
 namespace Writer_Helper.Views
 {
@@ -23,6 +24,24 @@ namespace Writer_Helper.Views
         public DeleteAccount()
         {
             InitializeComponent();
+        }
+
+
+        /// <summary>
+        /// return to account page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Cancel(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+        }
+
+
+        private void Confirm(object sender, RoutedEventArgs e)
+        {
+            DatabaseModel.Instance.DeleteAccount();
+            this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
         }
     }
 }
