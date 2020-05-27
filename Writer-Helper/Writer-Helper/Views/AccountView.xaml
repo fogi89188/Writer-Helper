@@ -1,0 +1,91 @@
+﻿<Page x:Class="Writer_Helper.Views.Account"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Writer_Helper.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Account">
+
+    <Grid>
+        <!-- the page goes here -->
+        <StackPanel>
+            <!-- header -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" 
+                        Content="Name Generation" 
+                        Style="{StaticResource System}"
+                        Click="GoToNameGeneration"/>
+                <Button Grid.Column="1" 
+                        Content="Suggestions" 
+                        Style="{StaticResource System}"
+                        Click="GoToSuggestions"/>
+                <Button Grid.Column="2" 
+                        Content="Favourites" 
+                        Style="{StaticResource System}"
+                        Click="GoToFavourites"/>
+                <Button Grid.Column="3" 
+                        Content="Log Out" 
+                        Style="{StaticResource System}"
+                        Click="GoToLogin"/>
+            </Grid>
+            <!-- content -->
+            <!-- Change Email-->
+            <Button Style="{StaticResource System}" 
+                    Foreground="Black" 
+                    FontFamily="{StaticResource RobotoMedium}" 
+                    Background="MediumAquamarine" 
+                    Content="Change Email"
+                    Margin="20"
+                    Click="ChangeEmail">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            
+            <!-- Change Password-->
+            <Button Style="{StaticResource System}" 
+                    Foreground="Black" 
+                    FontFamily="{StaticResource RobotoMedium}" 
+                    Background="MediumAquamarine" 
+                    Margin="20"
+                    Content="Change Password"
+                    Click="ChangePassword">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <!-- Delete Account-->
+            <Button Style="{StaticResource System}" 
+                    Foreground="Black" 
+                    FontFamily="{StaticResource RobotoMedium}" 
+                    Background="red" 
+                    Margin="20"
+                    Content="Delete Account"
+                    Click="DeleteAccount">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

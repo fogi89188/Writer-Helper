@@ -24,16 +24,21 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Column="0" 
-                    Content="Name Generation" 
-                    Style="{StaticResource System}"/>
-                <Button Grid.Column="1" 
                     Content="Favourites" 
-                    Style="{StaticResource System}"/>
+                    Style="{StaticResource System}"
+                    Click="GoToFavourites"/>
+                <Button Grid.Column="1" 
+                    Content="Suggestions" 
+                    Style="{StaticResource System}"
+                    Click="GoToSuggestions"/>
                 <Button Grid.Column="2" 
+                    Content="Account" 
+                    Style="{StaticResource System}"
+                    Click="GoToAccount"/>
+                <Button Grid.Column="3" 
                     Content="Log Out" 
                     Style="{StaticResource System}"
-                        Click="GoToLogin"/>
-                
+                    Click="GoToLogin"/>
             </Grid>
 
             <!-- mian logo text -->

@@ -26,10 +26,22 @@ namespace Writer_Helper
         {
             InitializeComponent();
         }
+        
+        /// <summary>
+        /// if the button "I dont have an account" is clicked, go to registration page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GoToRegistration(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Views/RegisterView.xaml", UriKind.Relative));
         }
+
+        /// <summary>
+        /// gets the email and the password, checks if they are correct and then logs you in
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Login(object sender, RoutedEventArgs e)
         {
             string email = $"{EmailTextBox.Text}";

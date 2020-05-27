@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Writer_Helper.Views
 {
     /// <summary>
-    /// Interaction logic for ControlPage.xaml
+    /// Interaction logic for SuggestionsView.xaml
     /// </summary>
-    public partial class ControlPage : Page
+    public partial class SuggestionsView : Page
     {
-        public ControlPage()
+        public SuggestionsView()
         {
             InitializeComponent();
         }
@@ -45,16 +45,6 @@ namespace Writer_Helper.Views
         }
 
         /// <summary>
-        /// go to the suggestions page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void GoToSuggestions(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Views/SuggestionsView.xaml", UriKind.Relative));
-        }
-
-        /// <summary>
         /// go to the account settings page
         /// </summary>
         /// <param name="sender"></param>
@@ -62,6 +52,16 @@ namespace Writer_Helper.Views
         private void GoToAccount(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+        }
+
+        /// <summary>
+        /// go to the random name generation page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GoToNameGeneration(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
         }
     }
 }

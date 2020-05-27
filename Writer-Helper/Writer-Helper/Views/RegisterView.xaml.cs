@@ -25,10 +25,21 @@ namespace Writer_Helper.Views
         {
             InitializeComponent();
         }
+        /// <summary>
+        /// If the button "I already have an account" is clicked, go to login page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void GoToLogin(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
         }
+
+        /// <summary>
+        /// Gets the email and the password and creates a new account in the database
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CreateUser(object sender, RoutedEventArgs e)
         {
             string email = $"{EmailTextBox.Text}";

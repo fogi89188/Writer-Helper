@@ -68,6 +68,11 @@ namespace Writer_Helper.Models
             reader.Close();
             return false;
         }
+        /// <summary>
+        /// creates a user
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
         public void AddUser(string email, string password)
         {
             string mysqlStatement = $"INSERT INTO Users (email, password, isAdmin) VALUES(\"{email}\", \"{password}\", false);";

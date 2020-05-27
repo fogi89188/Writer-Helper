@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Writer_Helper.Views
 {
     /// <summary>
-    /// Interaction logic for ControlPage.xaml
+    /// Interaction logic for FavouritesView.xaml
     /// </summary>
-    public partial class ControlPage : Page
+    public partial class FavouritesView : Page
     {
-        public ControlPage()
+        public FavouritesView()
         {
             InitializeComponent();
         }
@@ -35,13 +35,13 @@ namespace Writer_Helper.Views
             this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
         }
         /// <summary>
-        /// go to the favourites page
+        /// go to the random name generation page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void GoToFavourites(object sender, RoutedEventArgs e)
+        private void GoToNameGeneration(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Views/FavouritesView.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
         }
 
         /// <summary>
