@@ -84,6 +84,9 @@ namespace Writer_Helper.Models
             }
         }
 
+        /// <summary>
+        /// initializes the singleton class and opens the connection to the local database
+        /// </summary>
         public static void Initialize()
         {
             try
@@ -132,6 +135,9 @@ namespace Writer_Helper.Models
             return false;
         }
 
+        /// <summary>
+        /// set current parameters to 0 or null, essentially forgetting aout the 
+        /// </summary>
         public void Logout()
         {
             CurrentEmail = null;
@@ -139,6 +145,10 @@ namespace Writer_Helper.Models
             CurrentId = 0;
         }
 
+        /// <summary>
+        /// change email of current user from the database
+        /// </summary>
+        /// <param name="newEmail"></param>
         public void ChangeEmail(string newEmail)
         {
             //create new command with statement mysqlStatement
@@ -146,6 +156,11 @@ namespace Writer_Helper.Models
             MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
             command.ExecuteNonQuery();
         }
+
+        /// <summary>
+        /// change password of current user from the database
+        /// </summary>
+        /// <param name="newPassword"></param>
         public void ChangePassword(string newPassword)
         {
             //create new command with statement mysqlStatement
@@ -154,6 +169,9 @@ namespace Writer_Helper.Models
             command.ExecuteNonQuery();
         }
 
+        /// <summary>
+        /// remove an account form the database
+        /// </summary>
         public void DeleteAccount()
         {
             //create new command with statement mysqlStatement
@@ -176,6 +194,12 @@ namespace Writer_Helper.Models
             Login(email, password);
         }
 
+        /// <summary>
+        /// get random name from the database based on the race and sex
+        /// </summary>
+        /// <param name="race"></param>
+        /// <param name="sex"></param>
+        /// <returns></returns>
         public string GetRandomName(string race, string sex)
         {
             //create new command with statement mysqlStatement
