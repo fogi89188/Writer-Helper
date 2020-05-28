@@ -53,7 +53,14 @@ namespace Writer_Helper.Views
         /// <param name="e"></param>
         private void GoToSuggestions(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Views/SuggestionsView.xaml", UriKind.Relative));
+            if (DatabaseModel.IsAdmin)
+            {
+                this.NavigationService.Navigate(new Uri("Views/SuggestionsAdminView.xaml", UriKind.Relative));
+            }
+            else
+            {
+                this.NavigationService.Navigate(new Uri("Views/SuggestionsView.xaml", UriKind.Relative));
+            }
         }
 
         /// <summary>

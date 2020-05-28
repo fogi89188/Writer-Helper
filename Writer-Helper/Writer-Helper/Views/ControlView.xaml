@@ -64,7 +64,11 @@
                        Grid.Column="1"/>
                 <!-- choose a race-->
                 <ComboBox Grid.Column="2"
-                          Background="Transparent">
+                          Background="Transparent"
+                          x:Name="ComboBox">
+                    <ComboBoxItem Content="Human" x:Name="Human"></ComboBoxItem>
+                    <ComboBoxItem Content="Elf" x:Name="Elf"></ComboBoxItem>
+                    <ComboBoxItem Content="Dwarf" x:Name="Dwarf"></ComboBoxItem>
                 </ComboBox>
 
             </Grid>
@@ -74,10 +78,78 @@
                     Margin="10"
                     Padding="15"
                     Width="500">
-                <StackPanel>
-                    <TextBlock></TextBlock>
-                </StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="1">
+                        <TextBlock x:Name="Name1" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name2" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name3" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name4" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name5" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name6" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name7" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="2">
+                        <TextBlock x:Name="Name8" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name9" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name10" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name11" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name12" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name13" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Name14" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                </Grid>
             </Border>
+
+            <Grid Margin="0 10 0 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="1"
+                        Style="{StaticResource System}"
+                        Background="MediumAquamarine"
+                        Padding="15"
+                        Content="Male Names"
+                        FontFamily="{StaticResource RobotoMedium}"
+                        Foreground="Black"
+                        Margin="0 0 0 20"
+                        Click="GetMaleName">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Grid.Column="3"
+                        Style="{StaticResource System}"
+                        Background="MediumAquamarine"
+                        Padding="15"
+                        Content="Female Names"
+                        FontFamily="{StaticResource RobotoMedium}"
+                        Foreground="Black"
+                        Margin="0 0 0 20"
+                        Click="GetFemaleName">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+            
         </StackPanel>
         
     </Grid>

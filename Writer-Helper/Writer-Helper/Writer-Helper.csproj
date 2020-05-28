@@ -99,6 +99,9 @@
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SuggestionsAdminView.xaml.cs">
+      <DependentUpon>SuggestionsAdminView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SuggestionsView.xaml.cs">
       <DependentUpon>SuggestionsView.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SuggestionsAdminView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

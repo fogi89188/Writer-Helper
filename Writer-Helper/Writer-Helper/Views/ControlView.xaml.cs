@@ -53,7 +53,14 @@ namespace Writer_Helper.Views
         /// <param name="e"></param>
         private void GoToSuggestions(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Views/SuggestionsView.xaml", UriKind.Relative));
+            if (DatabaseModel.IsAdmin)
+            {
+                this.NavigationService.Navigate(new Uri("Views/SuggestionsAdminView.xaml", UriKind.Relative));
+            }
+            else
+            {
+                this.NavigationService.Navigate(new Uri("Views/SuggestionsView.xaml", UriKind.Relative));
+            }
         }
 
         /// <summary>
@@ -64,6 +71,77 @@ namespace Writer_Helper.Views
         private void GoToAccount(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
+        }
+
+
+        private void SetAllNames(string randomName)
+        {
+            Name1.Text = Name2.Text = Name3.Text = Name4.Text = Name5.Text = Name6.Text = Name7.Text = randomName;
+        }
+
+        /// <summary>
+        /// gets random male name and returns it
+        /// </summary>
+        /// <returns></returns>
+        private string GetRandomMaleName()
+        {
+            string name = DatabaseModel.Instance.GetRandomName(ComboBox.Text, "male");
+            return name;
+        }
+
+        /// <summary>
+        /// gets a random female name and returns it
+        /// </summary>
+        /// <returns></returns>
+        private string GetRandomFemaleName()
+        {
+            string name = DatabaseModel.Instance.GetRandomName(ComboBox.Text, "female");
+            return name;
+        }
+
+        /// <summary>
+        /// sets the names to random ones
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GetMaleName(object sender, RoutedEventArgs e)
+        {
+            Name1.Text = GetRandomMaleName();
+            Name2.Text = GetRandomMaleName();
+            Name3.Text = GetRandomMaleName();
+            Name4.Text = GetRandomMaleName();
+            Name5.Text = GetRandomMaleName();
+            Name6.Text = GetRandomMaleName();
+            Name7.Text = GetRandomMaleName();
+            Name8.Text = GetRandomMaleName();
+            Name9.Text = GetRandomMaleName();
+            Name10.Text = GetRandomMaleName();
+            Name11.Text = GetRandomMaleName();
+            Name12.Text = GetRandomMaleName();
+            Name13.Text = GetRandomMaleName();
+            Name14.Text = GetRandomMaleName();
+        }
+        /// <summary>
+        /// sets the names to random ones
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void GetFemaleName(object sender, RoutedEventArgs e)
+        {
+            Name1.Text = GetRandomFemaleName();
+            Name2.Text = GetRandomFemaleName();
+            Name3.Text = GetRandomFemaleName();
+            Name4.Text = GetRandomFemaleName();
+            Name5.Text = GetRandomFemaleName();
+            Name6.Text = GetRandomFemaleName();
+            Name7.Text = GetRandomFemaleName();
+            Name8.Text = GetRandomFemaleName();
+            Name9.Text = GetRandomFemaleName();
+            Name10.Text = GetRandomFemaleName();
+            Name11.Text = GetRandomFemaleName();
+            Name12.Text = GetRandomFemaleName();
+            Name13.Text = GetRandomFemaleName();
+            Name14.Text = GetRandomFemaleName();
         }
     }
 }

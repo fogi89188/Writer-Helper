@@ -119,7 +119,7 @@ namespace Writer_Helper.Models
             {
                 //checks if the password is correct
                 bool passwordCheck = reader.GetString("password").Equals(password);
-                if(passwordCheck == true)
+                if (passwordCheck == true)
                 {
                     CurrentEmail = email;
                     CurrentId = reader.GetInt16("id");
@@ -176,6 +176,22 @@ namespace Writer_Helper.Models
             Login(email, password);
         }
 
+        public string GetRandomName(string race, string sex)
+        {
+            //create new command with statement mysqlStatement
+            string mysqlStatement = $"SELECT firstName FROM names WHERE race = \"{race}\" AND sex = \"{sex}\" ORDER BY RAND() LIMIT 1;";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            //creare a reader to comapre data from the database
+            MySqlDataReader reader = command.ExecuteReader();
+            string randomName = "";
+            if (reader.Read())
+            {
+                randomName = reader.GetString("firstName");
+            }
+            reader.Close();
+            return randomName;
+        }
+
         #endregion
 
         #region Constructor
@@ -183,7 +199,7 @@ namespace Writer_Helper.Models
         {
         }
         static DatabaseModel()
-        { 
+        {
         }
         #endregion
 
