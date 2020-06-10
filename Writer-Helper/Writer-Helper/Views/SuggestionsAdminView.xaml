@@ -39,7 +39,86 @@
                         Click="GoToLogin"/>
             </Grid>
             <!-- content goes here -->
-            <TextBlock Text="Admin" Style="{StaticResource  Main1}" HorizontalAlignment="Center"/>
+            <StackPanel Margin="0 30 0 0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Name -->
+                    <TextBox x:Name="Name"
+                             Style="{StaticResource Credentials}"
+                             HorizontalAlignment="Center"
+                             Margin="20"
+                             Grid.Column="0">
+                    </TextBox>
+
+                    <!-- Race -->
+                    <ComboBox Grid.Column="1"
+                          Background="Transparent"
+                          x:Name="Race"
+                          Margin="25"
+                          SelectedIndex="0">
+                        <ComboBoxItem Content="Human" x:Name="Human"></ComboBoxItem>
+                        <ComboBoxItem Content="Elf" x:Name="Elf"></ComboBoxItem>
+                        <ComboBoxItem Content="Dwarf" x:Name="Dwarf"></ComboBoxItem>
+                    </ComboBox>
+
+                    <!-- Sex -->
+
+                    <ComboBox Grid.Column="2"
+                          Background="Transparent"
+                          x:Name="Sex"
+                          Margin="25"
+                          SelectedIndex="0">
+
+                        <ComboBoxItem Content="Male" Tag="Default" x:Name="Male"></ComboBoxItem>
+                        <ComboBoxItem Content="Female" x:Name="Female"></ComboBoxItem>
+                    </ComboBox>
+                </Grid>
+                
+                <Button Style="{StaticResource System}"
+                        Content="Add Name"
+                        Background="Aquamarine"
+                        Width="150"
+                        Foreground="Black"
+                        FontFamily="{StaticResource RobotoMedium}"
+                        Click="Add"
+                        Margin="0 40 0 0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Style="{StaticResource System}"
+                        Content="Remove Name"
+                        Background="Aquamarine"
+                        Width="150"
+                        Foreground="Black"
+                        FontFamily="{StaticResource RobotoMedium}"
+                        Click="Remove"
+                        Margin="0 40 0 0">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                
+                <TextBlock Style="{StaticResource Main2}" 
+                           Text="Choose if you want to edit, add or remove the suggested name."
+                           TextWrapping="Wrap"
+                           x:Name="Error"
+                           HorizontalAlignment="Center" 
+                           Margin=" 0 40 0 0">
+                </TextBlock>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>

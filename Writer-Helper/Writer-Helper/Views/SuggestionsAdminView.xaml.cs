@@ -24,6 +24,27 @@ namespace Writer_Helper.Views
         public SuggestionsAdminView()
         {
             InitializeComponent();
+            DatabaseModel.Instance.SetNumberOfSuggestedNames();
+            LoadSuggestedName();
+        }
+
+        /// <summary>
+        /// when opening the page, loads the current suggested name
+        /// </summary>
+        private void LoadSuggestedName()
+        {
+            if (DatabaseModel.numberOfSuggestedNames > 0)
+            {
+                Name.Text = DatabaseModel.Instance.SuggestedMostRecentName();
+                Race.Text = DatabaseModel.Instance.SuggestedMostRecentRace();
+                Sex.Text = DatabaseModel.Instance.SuggestedMostRecentSex();
+            }
+            else
+            {
+                Name.Text = null;
+                Race.Text = null;
+                Sex.Text = null;
+            }
         }
 
         /// <summary>
@@ -64,6 +85,53 @@ namespace Writer_Helper.Views
         private void GoToNameGeneration(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
+        }
+
+        /// <summary>
+        /// adds a suggested name to the names table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Add(object sender, RoutedEventArgs e)
+        {
+            if (Name.Text != null || Race.Text != null || Sex.Text != null)
+            {
+                DatabaseModel.Instance.AddSuggestedName(Name.Text, Race.Text, Sex.Text.ToLower());
+                Error.Text = "Name successfully added!";
+            }
+            if(DatabaseModel.numberOfSuggestedNames > 0)
+            {
+                LoadSuggestedName();
+            }
+            else
+            {
+                Name.Text = null;
+                Race.Text = null;
+                Sex.Text = null;
+                Error.Text = "No more suggested names! Good job!";
+            }
+        }
+
+        /// <summary>
+        /// removes a suggested name from the suggeestions table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Remove(object sender, RoutedEventArgs e)
+        {
+            DatabaseModel.Instance.RemoveSuggestedName();
+            Error.Text = "Name successfully removed!";
+            if (DatabaseModel.numberOfSuggestedNames > 0)
+            {
+                LoadSuggestedName();
+            }
+            else
+            {
+                Name.Text = null;
+                Race.Text = null;
+                Sex.Text = null;
+                Error.Text = "No more suggested names! Good job!";
+            }
         }
     }
 }

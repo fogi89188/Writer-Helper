@@ -24,6 +24,7 @@ namespace Writer_Helper.Views
         public SuggestionsView()
         {
             InitializeComponent();
+            DatabaseModel.Instance.SetNumberOfSuggestedNames();
         }
 
         /// <summary>
@@ -64,6 +65,26 @@ namespace Writer_Helper.Views
         private void GoToNameGeneration(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
+        }
+        /// <summary>
+        /// adds a name to the sugegstions table
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Suggestion(object sender, RoutedEventArgs e)
+        {
+            if (Name.Text != null || Race.Text != null || Sex.Text != null)
+            {
+                DatabaseModel.Instance.Suggest(Name.Text, Race.Text, Sex.Text);
+                Race.Text = null;
+                Name.Text = null;
+                Sex.Text = null;
+                Error.Text = "Your name was suggested correctly!";
+            }
+            else
+            {
+                Error.Text = "Make sure everything is filled out correctly.";
+            }
         }
     }
 }

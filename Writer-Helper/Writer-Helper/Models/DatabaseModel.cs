@@ -35,6 +35,8 @@ namespace Writer_Helper.Models
 
         public static bool isAdmin = false;
 
+        public static int numberOfSuggestedNames = 0;
+
         #endregion
 
         #region Commands
@@ -214,6 +216,120 @@ namespace Writer_Helper.Models
             }
             reader.Close();
             return randomName;
+        }
+
+        /// <summary>
+        /// adds a suggestion to the suggestions table so that the admin could add or remove suggested names
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="race"></param>
+        /// <param name="sex"></param>
+        public void Suggest(string name, string race, string sex)
+        {
+            string mysqlStatement = $"INSERT INTO suggestions (firstName, race, sex) VALUES(\"{name}\", \"{race}\", \"{sex}\");";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
+            numberOfSuggestedNames++;
+        }
+
+        /// <summary>
+        /// shows the first suggested name, so that the admin suggestion tab can load
+        /// </summary>
+        /// <returns></returns>
+        public string SuggestedMostRecentName()
+        {
+            string mysqlStatement = $"SELECT firstName FROM Suggestions LIMIT 1;";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            if(numberOfSuggestedNames > 0)
+            {
+                reader.Read();
+                string result = reader.GetString("firstName");
+                reader.Close();
+                return result;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// shows the first suggested race, so that the admin suggestion tab can load
+        /// </summary>
+        /// <returns></returns>
+        public string SuggestedMostRecentRace()
+        {
+            string mysqlStatement = $"SELECT race FROM Suggestions LIMIT 1;";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            if (numberOfSuggestedNames > 0)
+            {
+                reader.Read();
+                string result = reader.GetString("race");
+                reader.Close();
+                return result;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// shows the first suggested sex, so that the admin suggestion tab can load
+        /// </summary>
+        /// <returns></returns>
+        public string SuggestedMostRecentSex()
+        {
+            string mysqlStatement = $"SELECT sex FROM Suggestions LIMIT 1;";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            if (numberOfSuggestedNames > 0)
+            {
+                reader.Read();
+                string result = reader.GetString("sex");
+                reader.Close();
+                return result;
+            }
+            return null;
+        }
+
+
+        /// <summary>
+        /// adds the first suggested name to the names table
+        /// </summary>
+        public void AddSuggestedName(string name, string race, string sex)
+        {
+            string mysqlStatement = $"INSERT INTO names (firstName, race, sex) VALUES(\"{name}\", \"{race}\", \"{sex}\");";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
+            string mysqlStatement1 = $"DELETE FROM Suggestions LIMIT 1;";
+            MySqlCommand command1 = new MySqlCommand(mysqlStatement1, connection);
+            if (numberOfSuggestedNames > 0)
+            {
+                command1.ExecuteNonQuery();
+                numberOfSuggestedNames--;
+            }
+        }
+
+        /// <summary>
+        /// removes the first suggested name from the suggestions table
+        /// </summary>
+        public void RemoveSuggestedName()
+        {
+            string mysqlStatement = $"DELETE FROM Suggestions LIMIT 1;";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            if (numberOfSuggestedNames > 0)
+            {
+                command.ExecuteNonQuery();
+                numberOfSuggestedNames--;
+            }
+        }
+
+        public void SetNumberOfSuggestedNames()
+        {
+            string mysqlStatement = $"SELECT COUNT(*) FROM suggestions;";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            reader.Read();
+            int count = reader.GetInt16("COUNT(*)");
+            reader.Close();
+            numberOfSuggestedNames = count;
         }
 
         #endregion

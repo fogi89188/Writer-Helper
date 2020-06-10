@@ -17,6 +17,21 @@ race VARCHAR(50),
 sex VARCHAR(10)
 );
 
+CREATE TABLE IF NOT EXISTS Favourites (
+id INT(16) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+email VARCHAR(100) NOT NULL,
+firstName VARCHAR(50),
+race VARCHAR(50),
+sex VARCHAR(10)
+);
+
+CREATE TABLE IF NOT EXISTS Suggestions (
+id INT(16) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+firstName VARCHAR(50),
+race VARCHAR(50),
+sex VARCHAR(10)
+);
+
 SET SQL_SAFE_UPDATES = 0;
 DELETE FROM names;
 SET SQL_SAFE_UPDATES = 1;
@@ -174,4 +189,7 @@ INSERT INTO `writerhelper`.`names` (`firstName`, `race`, `sex`) VALUES ('Bonehea
 INSERT INTO `writerhelper`.`names` (`firstName`, `race`, `sex`) VALUES ('Nurargregit', 'Dwarf', 'female');
 INSERT INTO `writerhelper`.`names` (`firstName`, `race`, `sex`) VALUES ('Broulaelda', 'Dwarf', 'female');
 INSERT INTO `writerhelper`.`names` (`firstName`, `race`, `sex`) VALUES ('Sizneginn', 'Dwarf', 'female');
-INSERT INTO `writerhelper`.`names` (`firstName`, `race`, `sex`) VALUES ('Jarruibelyn', 'Dwarf', 'female');
+
+
+INSERT INTO `writerhelper`.`suggestions` (`firstName`, `race`, `sex`) VALUES ('David', 'Human', 'Male');
+INSERT INTO `writerhelper`.`suggestions` (`firstName`, `race`, `sex`) VALUES ('Xerlay', 'Elf', 'Female');
