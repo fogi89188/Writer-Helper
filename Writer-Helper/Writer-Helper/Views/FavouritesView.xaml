@@ -39,7 +39,89 @@
                         Click="GoToLogin"/>
             </Grid>
             <!-- content goes here -->
-            
+
+            <Grid>
+                <DataGrid ScrollViewer.CanContentScroll="True" 
+                ScrollViewer.VerticalScrollBarVisibility="Visible"
+                IsReadOnly="True" x:Name="dataGrid" 
+                AutoGenerateColumns="True" 
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Stretch" 
+                Height="300" 
+                Width="auto">
+
+                </DataGrid>
+            </Grid>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="80*"/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition Width="73*"/>
+                </Grid.ColumnDefinitions>
+
+
+                <Button Style="{StaticResource System}" 
+                    Background="Aquamarine" 
+                    Foreground="Black" 
+                    Content="Refresh"
+                    FontFamily="{StaticResource RobotoMedium}"
+                    Width="100"
+                    Margin="30,15,30,0"
+                    Grid.Column="1"
+                    Click="FillDataGridButton">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Style="{StaticResource System}" 
+                    Background="Aquamarine" 
+                    Foreground="Black" 
+                    Content="Add"
+                    FontFamily="{StaticResource RobotoMedium}"
+                    Width="100"
+                    Margin="30,15,30,0"
+                    Grid.Column="2"
+                    Click="GoToAddFavourite">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+                <Button Style="{StaticResource System}" 
+                    Background="Aquamarine" 
+                    Foreground="Black" 
+                    Content="Remove"
+                    FontFamily="{StaticResource RobotoMedium}"
+                    Width="100"
+                    Margin="30,15,30,0"
+                    Grid.Column="3"
+                    Click="GoToRemoveFavourite">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+
+            </Grid>
+            <TextBlock Text="Don't forget to click Refresh if something seems fishy!"
+                       Style="{StaticResource Main3}"
+                       HorizontalAlignment="Center"
+                       Margin="20">
+
+            </TextBlock>
         </StackPanel>
     </Grid>
 </Page>

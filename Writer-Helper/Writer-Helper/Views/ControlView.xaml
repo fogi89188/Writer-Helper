@@ -65,7 +65,8 @@
                 <!-- choose a race-->
                 <ComboBox Grid.Column="2"
                           Background="Transparent"
-                          x:Name="ComboBox">
+                          x:Name="ComboBox"
+                          SelectedIndex="0">
                     <ComboBoxItem Content="Human" x:Name="Human"></ComboBoxItem>
                     <ComboBoxItem Content="Elf" x:Name="Elf"></ComboBoxItem>
                     <ComboBoxItem Content="Dwarf" x:Name="Dwarf"></ComboBoxItem>
@@ -82,7 +83,9 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width=".7*"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width=".7*"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Grid.Column="1">
@@ -95,6 +98,15 @@
                         <TextBlock x:Name="Name7" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
                     </StackPanel>
                     <StackPanel Grid.Column="2">
+                        <Button x:Name="Button1" Click="FavouriteName1" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button2" Click="FavouriteName2" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button3" Click="FavouriteName3" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button4" Click="FavouriteName4" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button5" Click="FavouriteName5" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button6" Click="FavouriteName6" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button7" Click="FavouriteName7" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="3">
                         <TextBlock x:Name="Name8" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
                         <TextBlock x:Name="Name9" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
                         <TextBlock x:Name="Name10" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
@@ -102,6 +114,15 @@
                         <TextBlock x:Name="Name12" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
                         <TextBlock x:Name="Name13" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
                         <TextBlock x:Name="Name14" Text="Name" Style="{StaticResource Main3}" HorizontalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="4">
+                        <Button x:Name="Button8" Click="FavouriteName8" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button9" Click="FavouriteName9" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button10" Click="FavouriteName10" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button11" Click="FavouriteName11" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button12" Click="FavouriteName12" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button13" Click="FavouriteName13" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
+                        <Button x:Name="Button14" Click="FavouriteName14" Content="Add" Style="{StaticResource Hoverless}" Height="auto" Width="auto" Margin="0" FontSize="14"/>
                     </StackPanel>
                 </Grid>
             </Border>

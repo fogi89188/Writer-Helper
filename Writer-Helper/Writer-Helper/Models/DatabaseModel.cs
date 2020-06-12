@@ -1,10 +1,13 @@
 ﻿using System;
 using System.CodeDom;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using MySql.Data.MySqlClient;
+using Writer_Helper.Views;
 
 namespace Writer_Helper.Models
 {
@@ -36,6 +39,8 @@ namespace Writer_Helper.Models
         public static bool isAdmin = false;
 
         public static int numberOfSuggestedNames = 0;
+
+        public static DataTable dataTable = new DataTable("favourites");
 
         #endregion
 
@@ -241,7 +246,7 @@ namespace Writer_Helper.Models
             string mysqlStatement = $"SELECT firstName FROM Suggestions LIMIT 1;";
             MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
             MySqlDataReader reader = command.ExecuteReader();
-            if(numberOfSuggestedNames > 0)
+            if (numberOfSuggestedNames > 0)
             {
                 reader.Read();
                 string result = reader.GetString("firstName");
@@ -289,7 +294,6 @@ namespace Writer_Helper.Models
             return null;
         }
 
-
         /// <summary>
         /// adds the first suggested name to the names table
         /// </summary>
@@ -321,6 +325,9 @@ namespace Writer_Helper.Models
             }
         }
 
+        /// <summary>
+        /// sets the counter for the number of suggested names so that the admin suggestions page can load and refresh correctly
+        /// </summary>
         public void SetNumberOfSuggestedNames()
         {
             string mysqlStatement = $"SELECT COUNT(*) FROM suggestions;";
@@ -330,6 +337,91 @@ namespace Writer_Helper.Models
             int count = reader.GetInt16("COUNT(*)");
             reader.Close();
             numberOfSuggestedNames = count;
+        }
+
+        /// <summary>
+        /// establishes the initial datagrid connection in the favourites view
+        /// </summary>
+        public void FavouriteDataGridConnection(string email)
+        {
+            string mysqlStatement = $"SELECT * FROM favourites WHERE email = \"{CurrentEmail}\";";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            //check if email exists
+            if (reader.Read())
+            {
+                reader.Close();
+            }
+            //else create a new email favourites row in the favourites table
+            else
+            {
+                reader.Close();
+                mysqlStatement = $"INSERT INTO `writerhelper`.`favourites` (`email`, `sex`, `race`, `firstName`) VALUES (\'{CurrentEmail}\', \'Initialize\', \'Initialize\', \'Initialize\');";
+                command.ExecuteNonQuery();
+            }
+
+            mysqlStatement = $"SELECT firstName, race, sex FROM favourites WHERE email = \"{CurrentEmail}\";";
+            command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
+            MySqlDataAdapter dataAdapter = new MySqlDataAdapter(command);
+            dataAdapter.Fill(dataTable);
+            dataAdapter.Update(dataTable);
+        }
+
+        /// <summary>
+        /// add name to favourites
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="race"></param>
+        /// <param name="sex"></param>
+        public void AddNameToFavourites(string name, string race, string sex)
+        {
+            string mysqlStatement = $"INSERT INTO `writerhelper`.`favourites` (`email`, `firstName`, `race`, `sex`) VALUES (\'{CurrentEmail}\', \'{name}\', \'{race}\', \'{sex}\');";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
+            dataTable.Clear();
+        }
+
+        /// <summary>
+        /// check if a name exists in favourites
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="sex"></param>
+        /// <returns></returns>
+        public bool CheckIfAlreadyAdded(string name, int sex)
+        {
+            string Sex = "male";
+            if (sex == 1)
+            {
+                Sex = "female";
+            }
+            string mysqlStatement = $"SELECT firstName FROM favourites WHERE email = \"{CurrentEmail}\" AND firstName = \'{name}\' AND sex = \'{Sex}\';";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            MySqlDataReader reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                reader.Close();
+                return true;
+            }
+            reader.Close();
+            return false;
+        }
+
+        /// <summary>
+        /// remove an item from the current favourite list
+        /// </summary>
+        /// <param name="name"></param>
+        public void RemoveFavouriteName(string name)
+        {
+            string mysqlStatement = $"DELETE FROM favourites WHERE email = \'{CurrentEmail}\' AND firstName = \'{name}\'";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
+        }
+        public void AddFavouriteName(string name, string race, string sex)
+        {
+            string mysqlStatement = $"INSERT INTO `writerhelper`.`favourites` (`email`, `firstName`, `race`, `sex`) VALUES ('{CurrentEmail}','{name}', '{race}', '{sex}');";
+            MySqlCommand command = new MySqlCommand(mysqlStatement, connection);
+            command.ExecuteNonQuery();
         }
 
         #endregion

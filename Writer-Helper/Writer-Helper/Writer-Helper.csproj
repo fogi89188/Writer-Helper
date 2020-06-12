@@ -75,6 +75,9 @@
     <Compile Include="Views\AccountView.xaml.cs">
       <DependentUpon>AccountView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AddFavouriteView.xaml.cs">
+      <DependentUpon>AddFavouriteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ChangeEmailView.xaml.cs">
       <DependentUpon>ChangeEmailView.xaml</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
     <Compile Include="Views\RegisterView.xaml.cs">
       <DependentUpon>RegisterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RemoveFavouriteView.xaml.cs">
+      <DependentUpon>RemoveFavouriteView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SuggestionsAdminView.xaml.cs">
       <DependentUpon>SuggestionsAdminView.xaml</DependentUpon>
     </Compile>
@@ -106,6 +112,10 @@
       <DependentUpon>SuggestionsView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\AccountView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddFavouriteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,6 +176,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\RegisterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RemoveFavouriteView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -17,15 +17,15 @@ using Writer_Helper.Models;
 namespace Writer_Helper.Views
 {
     /// <summary>
-    /// Interaction logic for FavouritesView.xaml
+    /// Interaction logic for RemoveFavouriteView.xaml
     /// </summary>
-    public partial class FavouritesView : Page
+    public partial class RemoveFavouriteView : Page
     {
-        public FavouritesView()
+        public RemoveFavouriteView()
         {
             InitializeComponent();
-            FillDataGrid();
         }
+
 
         /// <summary>
         /// return to the login page, essentially Logging Out
@@ -38,13 +38,13 @@ namespace Writer_Helper.Views
             this.NavigationService.Navigate(new Uri("Views/LoginView.xaml", UriKind.Relative));
         }
         /// <summary>
-        /// go to the random name generation page
+        /// go to the favourites page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void GoToNameGeneration(object sender, RoutedEventArgs e)
+        private void GoToFavourites(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Views/FavouritesView.xaml", UriKind.Relative));
         }
 
         /// <summary>
@@ -65,23 +65,13 @@ namespace Writer_Helper.Views
         }
 
         /// <summary>
-        /// go to the account settings page
+        /// go to the random name generation page
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void GoToRemoveFavourite(object sender, RoutedEventArgs e)
+        private void GoToNameGeneration(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Views/RemoveFavouriteView.xaml", UriKind.Relative));
-        }
-
-        /// <summary>
-        /// go to the account settings page
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void GoToAddFavourite(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("Views/AddFavouriteView.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("Views/ControlView.xaml", UriKind.Relative));
         }
 
         /// <summary>
@@ -94,16 +84,16 @@ namespace Writer_Helper.Views
             this.NavigationService.Navigate(new Uri("Views/AccountView.xaml", UriKind.Relative));
         }
 
-        private void FillDataGrid()
+        /// <summary>
+        /// Remove name from favourite list if the name exists
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Confirm(object sender, RoutedEventArgs e)
         {
-            DatabaseModel.Instance.FavouriteDataGridConnection(DatabaseModel.CurrentEmail);
-            dataGrid.ItemsSource = DatabaseModel.dataTable.DefaultView;
-        }
-
-        public void FillDataGridButton(object sender, RoutedEventArgs e)
-        {
-            DatabaseModel.dataTable.Clear();
-            FillDataGrid();
+            DatabaseModel.Instance.RemoveFavouriteName(Name.Text);
+            //TO DO: check if name exists
+            Error.Text = "Name Removed!";
         }
     }
 }
